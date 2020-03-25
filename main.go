@@ -22,7 +22,8 @@ func sendIndexRequest(url string, target *BitbucketPullRequestIndex) error {
 	if err != nil {
 		return err
 	}
-	request.Header.Add("Authorization", "Bearer "+token)
+	request.Header.Add("Authorization", "Bearer " + Token)
+	request.Header.Add("Accept", "application/json")
 
 	response, e := client.Do(request)
 	if e != nil {
@@ -74,12 +75,12 @@ func formatReviewerNames(pullRequest BitbucketIndexValue) ([]string, []string) {
 
 func main() {
 
-	url := serverHostname + repoPath
+	url := ServerHostname + RepoPath
 
 	target := &BitbucketPullRequestIndex{}
 	err := sendIndexRequest(url, target)
 	if err != nil {
-		fmt.Println("Error:", err)
+		fmt.Printf("sendIndexRequest: %v\n", err)
 		return
 	}
 

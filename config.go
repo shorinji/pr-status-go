@@ -1,9 +1,8 @@
 package main
 
 const (
-	username       = ""
-	token          = ""
-	serverHostname = ""
-	project        = ""
-	repoPath       = ""
+	Username       = ""
+	Token          = ""
+	ServerHostname = "https://"
+	RepoPath       = "/projects/.../pull-requests"
 )
